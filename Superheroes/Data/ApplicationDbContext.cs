@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Superheroes.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,5 +13,6 @@ namespace Superheroes.Data
             : base(options)
         {
         }
+        public DbSet<Superhero> Superheroes { get; set; }
     }
 }
