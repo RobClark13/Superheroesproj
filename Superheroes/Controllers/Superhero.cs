@@ -37,6 +37,17 @@ namespace Superheroes.Controllers
             return View(superheroDetails);
         }
 
+        public IActionResult Edit(int id)
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Edit(Superhero superhero)
+        {
+            _context.Superheroes.Update(superhero);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
       
         
     }
