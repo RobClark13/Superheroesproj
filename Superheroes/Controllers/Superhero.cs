@@ -39,7 +39,8 @@ namespace Superheroes.Controllers
 
         public IActionResult Edit(int id)
         {
-            return View();
+            var superheroDetails = _context.Superheroes.Find(id);
+            return View(superheroDetails);
         }
         [HttpPost]
         public IActionResult Edit(Superhero superhero)
@@ -48,6 +49,19 @@ namespace Superheroes.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        public IActionResult Delete(int id)
+        {
+            var superheroDetails = _context.Superheroes.Find(id);
+            return View(superheroDetails);
+        }
+        [HttpPost]
+        public IActionResult Delete(Superhero superhero)
+        {
+            _context.Superheroes.Remove(superhero);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        
       
         
     }
